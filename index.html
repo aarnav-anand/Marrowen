@@ -3,30 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Marrowen — Opportunistic Fatty Liver Detection</title>
+<title>Marrowen — Aortic Aneurysm Detection</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:       #07090F;
-    --surface:  #111827;
-    --surface2: #1A2240;
-    --accent:   #3ECFB2;
+    --bg:        #07090F;
+    --surface:   #111827;
+    --surface2:  #1A2240;
+    --accent:    #3ECFB2;
     --accent-dim: rgba(62,207,178,0.12);
-    --accent-glow: rgba(62,207,178,0.25);
-    --text:     #EDF2F0;
-    --text-sub: #7A95A0;
-    --text-dim: #4A6070;
-    --border:   rgba(62,207,178,0.15);
+    --text:      #EDF2F0;
+    --text-sub:  #7A95A0;
+    --text-dim:  #4A6070;
+    --border:    rgba(62,207,178,0.15);
     --serif: 'Instrument Serif', Georgia, serif;
     --sans:  'Inter', system-ui, sans-serif;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--bg);
     color: var(--text);
@@ -41,41 +38,23 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 1.25rem 5vw;
-    background: rgba(7,9,15,0.8);
+    background: rgba(7,9,15,0.85);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(255,255,255,0.04);
   }
-  .nav-logo {
-    font-family: var(--serif);
-    font-size: 1.35rem;
-    color: var(--text);
-    letter-spacing: 0.01em;
-  }
+  .nav-logo { font-family: var(--serif); font-size: 1.35rem; color: var(--text); }
   .nav-logo span { color: var(--accent); }
-  .nav-right {
-    display: flex; align-items: center; gap: 2rem;
-  }
+  .nav-right { display: flex; align-items: center; gap: 2rem; }
   .nav-badge {
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    color: var(--text-sub);
-    border: 1px solid var(--border);
-    padding: 0.3rem 0.75rem;
-    border-radius: 100px;
-    text-transform: uppercase;
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.05em;
+    color: var(--text-sub); border: 1px solid var(--border);
+    padding: 0.3rem 0.75rem; border-radius: 100px; text-transform: uppercase;
   }
   .nav-cta {
-    background: var(--accent);
-    color: #07090F;
-    font-size: 0.85rem;
-    font-weight: 600;
-    padding: 0.55rem 1.25rem;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: opacity 0.2s;
+    background: var(--accent); color: #07090F;
+    font-size: 0.85rem; font-weight: 600;
+    padding: 0.55rem 1.25rem; border-radius: 6px;
+    border: none; cursor: pointer; text-decoration: none; transition: opacity 0.2s;
   }
   .nav-cta:hover { opacity: 0.85; }
 
@@ -95,325 +74,194 @@
     pointer-events: none;
   }
   .hero-eyebrow {
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--accent);
-    letter-spacing: 0.06em;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
+    font-size: 0.8rem; font-weight: 500; color: var(--accent);
+    letter-spacing: 0.06em; margin-bottom: 1.5rem; text-transform: uppercase;
   }
   .hero-headline {
     font-family: var(--serif);
     font-size: clamp(2.8rem, 6vw, 5.5rem);
-    line-height: 1.08;
-    font-weight: 400;
-    max-width: 18ch;
-    margin: 0 auto 1.75rem;
+    line-height: 1.08; font-weight: 400;
+    max-width: 20ch; margin: 0 auto 1.75rem;
   }
-  .hero-headline em {
-    font-style: italic;
-    color: var(--accent);
-  }
+  .hero-headline em { font-style: italic; color: var(--accent); }
   .hero-sub {
-    font-size: 1.1rem;
-    color: var(--text-sub);
-    max-width: 52ch;
-    line-height: 1.7;
-    margin: 0 auto 3rem;
+    font-size: 1.1rem; color: var(--text-sub);
+    max-width: 52ch; line-height: 1.7; margin: 0 auto 3rem;
   }
   .hero-actions {
     display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 5rem;
+    justify-content: center; margin-bottom: 5rem;
   }
   .btn-primary {
-    background: var(--accent);
-    color: #07090F;
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: 0.8rem 1.75rem;
-    border-radius: 7px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
+    background: var(--accent); color: #07090F;
+    font-size: 0.9rem; font-weight: 600;
+    padding: 0.8rem 1.75rem; border-radius: 7px; border: none;
+    cursor: pointer; text-decoration: none;
     display: inline-flex; align-items: center; gap: 0.5rem;
     transition: opacity 0.2s, transform 0.15s;
   }
   .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
   .btn-ghost {
-    font-size: 0.9rem;
-    color: var(--text-sub);
-    background: none; border: none;
-    text-decoration: none;
+    font-size: 0.9rem; color: var(--text-sub);
+    background: none; border: none; text-decoration: none;
     display: inline-flex; align-items: center; gap: 0.4rem;
-    cursor: pointer;
-    transition: color 0.2s;
+    cursor: pointer; transition: color 0.2s;
   }
   .btn-ghost:hover { color: var(--text); }
 
-  /* ── LIVE SCAN WIDGET ── */
-  .scan-widget {
-    display: flex; align-items: stretch; gap: 0;
+  /* ── AORTA WIDGET ── */
+  .aorta-widget {
+    display: flex; align-items: stretch;
     border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    max-width: 680px;
-    width: 100%;
-    background: var(--surface);
-    margin: 0 auto;
+    border-radius: 12px; overflow: hidden;
+    max-width: 660px; width: 100%;
+    background: var(--surface); margin: 0 auto;
   }
-  .scan-readout {
-    flex: 0 0 auto;
-    padding: 2.5rem 3rem;
+  .aorta-readout {
+    flex: 0 0 auto; padding: 2.5rem 2.75rem;
     display: flex; flex-direction: column; justify-content: center;
-    background: var(--surface2);
-    border-right: 1px solid var(--border);
+    background: var(--surface2); border-right: 1px solid var(--border);
   }
-  .scan-label {
-    font-size: 0.72rem;
-    font-weight: 500;
-    color: var(--text-dim);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 0.4rem;
+  .aorta-label {
+    font-size: 0.72rem; font-weight: 500; color: var(--text-dim);
+    letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.4rem;
   }
-  .scan-hu {
-    font-family: var(--serif);
-    font-size: 4.5rem;
-    line-height: 1;
-    color: var(--accent);
-    font-style: italic;
-    animation: hu-pulse 3s ease-in-out infinite;
+  .aorta-diameter {
+    font-family: var(--serif); font-style: italic;
+    font-size: 4.5rem; line-height: 1; color: var(--accent);
+    animation: pulse 3s ease-in-out infinite;
   }
-  @keyframes hu-pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
+  .aorta-unit { font-size: 1.2rem; color: var(--text-sub); font-family: var(--sans); font-style: normal; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.65} }
+  .aorta-flag {
+    margin-top: 0.75rem; font-size: 0.8rem; font-weight: 600;
+    background: rgba(224,80,80,0.15); color: #E07070;
+    display: inline-block; padding: 0.25rem 0.65rem;
+    border-radius: 4px; letter-spacing: 0.04em;
   }
-  .scan-unit { font-size: 1.2rem; color: var(--text-sub); font-family: var(--sans); font-style: normal; }
-  .scan-grade {
-    margin-top: 0.75rem;
-    font-size: 0.8rem;
-    font-weight: 600;
-    background: rgba(62,207,178,0.15);
-    color: var(--accent);
-    display: inline-block;
-    padding: 0.25rem 0.65rem;
-    border-radius: 4px;
-    letter-spacing: 0.04em;
+  .aorta-details {
+    flex: 1; padding: 2rem;
+    display: flex; flex-direction: column; gap: 0; justify-content: center;
   }
-  .scan-details {
-    flex: 1; padding: 2rem 2rem;
-    display: flex; flex-direction: column; gap: 1rem; justify-content: center;
-  }
-  .scan-row {
+  .a-row {
     display: flex; justify-content: space-between; align-items: center;
-    font-size: 0.82rem; padding-bottom: 0.75rem;
+    font-size: 0.82rem; padding: 0.7rem 0;
     border-bottom: 1px solid rgba(255,255,255,0.05);
   }
-  .scan-row:last-child { border-bottom: none; padding-bottom: 0; }
-  .scan-row-label { color: var(--text-dim); }
-  .scan-row-val { color: var(--text); font-weight: 500; }
-  .scan-row-val.good { color: var(--accent); }
+  .a-row:last-child { border-bottom: none; }
+  .a-row-label { color: var(--text-dim); }
+  .a-row-val { color: var(--text); font-weight: 500; }
+  .a-row-val.warn { color: #E07070; }
+  .a-row-val.ok { color: var(--accent); }
 
-  /* ── STATS STRIP ── */
+  /* ── STATS ── */
   .stats {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    background: var(--surface);
     border-top: 1px solid rgba(255,255,255,0.05);
     border-bottom: 1px solid rgba(255,255,255,0.05);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    background: var(--surface);
   }
   .stat-item {
     padding: 2.5rem 3rem;
     border-right: 1px solid rgba(255,255,255,0.05);
   }
   .stat-item:last-child { border-right: none; }
-  .stat-num {
-    font-family: var(--serif);
-    font-size: 3rem;
-    line-height: 1;
-    color: var(--text);
-    margin-bottom: 0.4rem;
-  }
+  .stat-num { font-family: var(--serif); font-size: 3rem; line-height: 1; margin-bottom: 0.4rem; }
   .stat-num span { color: var(--accent); }
-  .stat-desc {
-    font-size: 0.82rem;
-    color: var(--text-sub);
-    line-height: 1.5;
-    max-width: 20ch;
-  }
+  .stat-desc { font-size: 0.82rem; color: var(--text-sub); line-height: 1.5; max-width: 20ch; }
 
-  /* ── SECTION BASE ── */
+  /* ── SECTIONS ── */
   section { padding: 7rem 5vw; }
   .section-tag {
-    font-size: 0.72rem;
-    font-weight: 500;
-    color: var(--accent);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
+    font-size: 0.72rem; font-weight: 500; color: var(--accent);
+    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem;
   }
   h2 {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 400;
-    line-height: 1.15;
-    margin-bottom: 1.25rem;
-    max-width: 22ch;
+    font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 400; line-height: 1.15; margin-bottom: 1.25rem; max-width: 22ch;
   }
   .section-intro {
-    color: var(--text-sub);
-    font-size: 1.05rem;
-    line-height: 1.7;
-    max-width: 52ch;
-    margin-bottom: 4rem;
+    color: var(--text-sub); font-size: 1.05rem; line-height: 1.7;
+    max-width: 52ch; margin-bottom: 4rem;
   }
 
-  /* ── IMPACT SECTION ── */
-  .impact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
+  /* ── PROBLEM SPLIT ── */
+  .problem-split {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 12px;
-    overflow: hidden;
+    border-radius: 12px; overflow: hidden;
   }
-  .impact-cell {
-    background: var(--surface);
-    padding: 3rem;
-  }
-  .impact-cell:hover { background: var(--surface2); transition: background 0.25s; }
-  .impact-icon {
+  .prob-cell { background: var(--surface); padding: 3rem; }
+  .prob-cell:hover { background: var(--surface2); transition: background 0.25s; }
+  .prob-icon {
     width: 44px; height: 44px;
-    background: var(--accent-dim);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 1.5rem;
-    font-size: 1.2rem;
+    background: var(--accent-dim); border: 1px solid var(--border);
+    border-radius: 10px; display: flex; align-items: center;
+    justify-content: center; margin-bottom: 1.5rem; font-size: 1.2rem;
   }
-  .impact-cell h3 {
-    font-family: var(--serif);
-    font-size: 1.3rem;
-    font-weight: 400;
-    margin-bottom: 0.65rem;
-    line-height: 1.3;
+  .prob-cell h3 {
+    font-family: var(--serif); font-size: 1.3rem;
+    font-weight: 400; margin-bottom: 0.65rem; line-height: 1.3;
   }
-  .impact-cell p {
-    font-size: 0.88rem;
-    color: var(--text-sub);
-    line-height: 1.7;
-    max-width: 38ch;
-  }
+  .prob-cell p { font-size: 0.88rem; color: var(--text-sub); line-height: 1.7; max-width: 38ch; }
 
   /* ── HOW IT WORKS ── */
   .how-section { background: var(--surface); }
   .pipeline {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
   }
   .pipe-step {
     padding: 3rem 2.5rem;
-    border-right: 1px solid var(--border);
-    position: relative;
+    border-right: 1px solid var(--border); position: relative;
   }
   .pipe-step:last-child { border-right: none; }
   .pipe-num {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 3.5rem;
-    color: var(--border);
-    line-height: 1;
-    margin-bottom: 1.25rem;
+    font-family: var(--serif); font-style: italic;
+    font-size: 3.5rem; color: var(--border); line-height: 1; margin-bottom: 1.25rem;
   }
-  .pipe-step h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.6rem;
-    color: var(--text);
+  .pipe-step h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.6rem; }
+  .pipe-step p { font-size: 0.85rem; color: var(--text-sub); line-height: 1.65; }
+  .pipe-dot {
+    position: absolute; top: 50%; right: -5px;
+    width: 9px; height: 9px; background: var(--accent);
+    border-radius: 50%; transform: translateY(-50%); z-index: 1;
   }
-  .pipe-step p {
-    font-size: 0.85rem;
-    color: var(--text-sub);
-    line-height: 1.65;
-  }
-  .pipe-connector {
-    position: absolute; top: 50%; right: -1px;
-    width: 8px; height: 8px;
-    background: var(--accent);
-    border-radius: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-  }
-  .pipe-step:last-child .pipe-connector { display: none; }
+  .pipe-step:last-child .pipe-dot { display: none; }
 
-  /* ── RESULT GRADES ── */
-  .grades-section { }
-  .grades-table {
-    width: 100%;
-    border-collapse: collapse;
+  /* ── SIZE THRESHOLDS ── */
+  .thresholds-section {}
+  .thresh-table {
+    width: 100%; border-collapse: collapse;
     border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 10px;
-    overflow: hidden;
+    border-radius: 10px; overflow: hidden;
   }
-  .grades-table th {
-    background: var(--surface2);
-    text-align: left;
-    padding: 1rem 1.5rem;
-    font-size: 0.72rem;
-    font-weight: 500;
-    color: var(--text-dim);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+  .thresh-table th {
+    background: var(--surface2); text-align: left;
+    padding: 1rem 1.5rem; font-size: 0.72rem; font-weight: 500;
+    color: var(--text-dim); letter-spacing: 0.05em; text-transform: uppercase;
     border-bottom: 1px solid rgba(255,255,255,0.06);
   }
-  .grades-table td {
-    padding: 1.25rem 1.5rem;
-    font-size: 0.88rem;
-    color: var(--text-sub);
-    border-bottom: 1px solid rgba(255,255,255,0.04);
+  .thresh-table td {
+    padding: 1.25rem 1.5rem; font-size: 0.88rem;
+    color: var(--text-sub); border-bottom: 1px solid rgba(255,255,255,0.04);
     vertical-align: top;
   }
-  .grades-table tr:last-child td { border-bottom: none; }
-  .grades-table tr:hover td { background: rgba(255,255,255,0.02); }
-  .grade-pill {
-    display: inline-block;
-    padding: 0.2rem 0.7rem;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
+  .thresh-table tr:last-child td { border-bottom: none; }
+  .thresh-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .sz-pill {
+    display: inline-block; padding: 0.2rem 0.7rem; border-radius: 4px;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.03em;
   }
-  .grade-none  { background: rgba(62,207,178,0.12); color: #3ECFB2; }
-  .grade-mild  { background: rgba(250,200,80,0.12);  color: #F5C84A; }
-  .grade-mod   { background: rgba(250,140,60,0.12);  color: #F07830; }
-  .grade-sev   { background: rgba(230,70,70,0.12);   color: #E05050; }
+  .sz-normal  { background: rgba(62,207,178,0.12);  color: #3ECFB2; }
+  .sz-watch   { background: rgba(245,200,74,0.12);   color: #F5C84A; }
+  .sz-refer   { background: rgba(240,120,48,0.12);   color: #F07830; }
+  .sz-urgent  { background: rgba(224,80,80,0.12);    color: #E05050; }
 
-  /* ── RESEARCH NOTE (subtle) ── */
-  .research-note {
-    font-size: 0.78rem;
-    color: var(--text-dim);
-    margin-top: 1.25rem;
-    line-height: 1.6;
-  }
-  .research-note span {
-    display: inline-block;
-    border: 1px solid rgba(255,255,255,0.07);
-    border-radius: 4px;
-    padding: 0.1rem 0.5rem;
-    margin-right: 0.25rem;
-    font-size: 0.72rem;
-  }
-
-  /* ── LAUNCH / CTA ── */
+  /* ── LAUNCH ── */
   .launch-section {
-    text-align: center;
-    padding: 8rem 5vw;
+    text-align: center; padding: 8rem 5vw;
     position: relative; overflow: hidden;
   }
   .launch-section::before {
@@ -424,26 +272,13 @@
     pointer-events: none;
   }
   .launch-date {
-    display: inline-block;
-    border: 1px solid var(--border);
-    background: var(--accent-dim);
-    padding: 0.4rem 1.1rem;
-    border-radius: 100px;
-    font-size: 0.8rem;
-    color: var(--accent);
-    font-weight: 500;
-    margin-bottom: 2rem;
-    letter-spacing: 0.04em;
+    display: inline-block; border: 1px solid var(--border);
+    background: var(--accent-dim); padding: 0.4rem 1.1rem;
+    border-radius: 100px; font-size: 0.8rem; color: var(--accent);
+    font-weight: 500; margin-bottom: 2rem; letter-spacing: 0.04em;
   }
-  .launch-section h2 {
-    margin: 0 auto 1.25rem;
-    text-align: center;
-    max-width: 100%;
-  }
-  .launch-section .section-intro {
-    margin: 0 auto 3rem;
-    text-align: center;
-  }
+  .launch-section h2 { margin: 0 auto 1.25rem; text-align: center; max-width: 100%; }
+  .launch-section .section-intro { margin: 0 auto 3rem; text-align: center; }
   .gform-wrap {
     max-width: 480px; margin: 0 auto;
     display: flex; flex-direction: column; align-items: center; gap: 1rem;
@@ -460,6 +295,15 @@
   .gform-sub {
     font-size: 0.78rem; color: var(--text-dim); text-align: center; line-height: 1.6;
   }
+  .research-note {
+    font-size: 0.78rem; color: var(--text-dim);
+    margin-top: 1.25rem; line-height: 1.6;
+  }
+  .research-note span {
+    display: inline-block; border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 4px; padding: 0.1rem 0.5rem;
+    margin-right: 0.25rem; font-size: 0.72rem;
+  }
 
   /* ── FOOTER ── */
   footer {
@@ -468,40 +312,31 @@
     display: flex; align-items: center; justify-content: space-between;
     flex-wrap: wrap; gap: 1rem;
   }
-  .footer-logo {
-    font-family: var(--serif);
-    font-size: 1.1rem;
-    color: var(--text-dim);
-  }
+  .footer-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--text-dim); }
   .footer-logo span { color: var(--accent); }
   .footer-note {
-    font-size: 0.75rem;
-    color: var(--text-dim);
-    line-height: 1.6;
-    max-width: 60ch;
-    text-align: right;
+    font-size: 0.75rem; color: var(--text-dim);
+    line-height: 1.6; max-width: 60ch; text-align: right;
   }
 
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
-    .impact-grid { grid-template-columns: 1fr; }
+    .problem-split { grid-template-columns: 1fr; }
     .pipeline { grid-template-columns: 1fr; }
     .pipe-step { border-right: none; border-bottom: 1px solid var(--border); }
     .pipe-step:last-child { border-bottom: none; }
-    .pipe-connector { display: none; }
-    .scan-widget { flex-direction: column; }
-    .scan-readout { border-right: none; border-bottom: 1px solid var(--border); padding: 2rem; }
+    .pipe-dot { display: none; }
+    .aorta-widget { flex-direction: column; }
+    .aorta-readout { border-right: none; border-bottom: 1px solid var(--border); padding: 2rem; }
     .stats { grid-template-columns: 1fr 1fr; }
     .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
     .footer-note { text-align: left; }
-    .nav-right .nav-badge { display: none; }
-    .disclaimer-box { flex-direction: column; padding: 1.75rem; }
-    .grades-table { font-size: 0.8rem; }
-    .grades-table td, .grades-table th { padding: 0.9rem 1rem; }
+    .nav-badge { display: none; }
+    .thresh-table td, .thresh-table th { padding: 0.9rem 1rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .scan-hu { animation: none; }
+    .aorta-diameter { animation: none; }
     * { transition: none !important; }
   }
 </style>
@@ -513,47 +348,47 @@
   <div class="nav-logo">Marrow<span>en</span></div>
   <div class="nav-right">
     <span class="nav-badge">Research Prototype</span>
-    <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+    <a href="#waitlist" class="nav-cta">Get Early Access</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-eyebrow">Opportunistic Hepatic Steatosis Detection</div>
-  <h1 class="hero-headline">The finding was always there.<br><em>Now it gets read.</em></h1>
-  <p class="hero-sub">Marrowen automatically screens routine abdominal CT scans for fatty liver disease — no extra imaging, no specialist referral, no disruption to the radiology workflow.</p>
+  <div class="hero-eyebrow">Opportunistic Aortic Aneurysm Detection</div>
+  <h1 class="hero-headline">The measurement takes one second.<br><em>It's just never taken.</em></h1>
+  <p class="hero-sub">Marrowen automatically measures aortic diameter on routine abdominal CT scans — flagging aneurysms that are already visible in scans ordered for something else entirely.</p>
   <div class="hero-actions">
     <a href="#waitlist" class="btn-primary">Request Early Access &rarr;</a>
     <a href="#how" class="btn-ghost">See how it works ↓</a>
   </div>
 
-  <!-- Live scan readout widget -->
-  <div class="scan-widget" aria-label="Sample scan output">
-    <div class="scan-readout">
-      <div class="scan-label">Mean Liver HU</div>
-      <div class="scan-hu">31<span class="scan-unit">.4</span></div>
-      <div class="scan-grade">MODERATE STEATOSIS</div>
+  <!-- Aorta readout widget -->
+  <div class="aorta-widget" aria-label="Sample scan output">
+    <div class="aorta-readout">
+      <div class="aorta-label">Max Aortic Diameter</div>
+      <div class="aorta-diameter">58<span class="aorta-unit">mm</span></div>
+      <div class="aorta-flag">SURGICAL THRESHOLD</div>
     </div>
-    <div class="scan-details">
-      <div class="scan-row">
-        <span class="scan-row-label">Scan type</span>
-        <span class="scan-row-val">Non-contrast abdominal CT</span>
+    <div class="aorta-details">
+      <div class="a-row">
+        <span class="a-row-label">Scan type</span>
+        <span class="a-row-val">Non-contrast abdominal CT</span>
       </div>
-      <div class="scan-row">
-        <span class="scan-row-label">Liver-to-Spleen ratio</span>
-        <span class="scan-row-val">0.72 &nbsp;·&nbsp; confirms steatosis</span>
+      <div class="a-row">
+        <span class="a-row-label">Location</span>
+        <span class="a-row-val">Infrarenal aorta · L2–L4</span>
       </div>
-      <div class="scan-row">
-        <span class="scan-row-label">Risk score</span>
-        <span class="scan-row-val good">0.94 — High</span>
+      <div class="a-row">
+        <span class="a-row-label">Threshold</span>
+        <span class="a-row-val warn">Above 55 mm — surgical risk</span>
       </div>
-      <div class="scan-row">
-        <span class="scan-row-label">Time to result</span>
-        <span class="scan-row-val good">~6 seconds</span>
+      <div class="a-row">
+        <span class="a-row-label">Reason for original scan</span>
+        <span class="a-row-val">Kidney stone workup</span>
       </div>
-      <div class="scan-row">
-        <span class="scan-row-label">Action</span>
-        <span class="scan-row-val">Hepatology referral recommended</span>
+      <div class="a-row">
+        <span class="a-row-label">Action</span>
+        <span class="a-row-val warn">Urgent vascular referral</span>
       </div>
     </div>
   </div>
@@ -562,49 +397,49 @@
 <!-- STATS -->
 <div class="stats">
   <div class="stat-item">
-    <div class="stat-num">30<span>%</span></div>
-    <div class="stat-desc">of adults worldwide live with fatty liver disease</div>
+    <div class="stat-num">80<span>%</span></div>
+    <div class="stat-desc">of patients die when an aortic aneurysm ruptures</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num">3.2<span>%</span></div>
-    <div class="stat-desc">of CT-diagnosed cases are ever recorded in the patient chart</div>
+    <div class="stat-num">0<span> symptoms</span></div>
+    <div class="stat-desc">until rupture — the condition is entirely silent</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num">0.92<span>+</span></div>
-    <div class="stat-desc">AUROC accuracy target on multi-site validation</div>
+    <div class="stat-num">1<span> number</span></div>
+    <div class="stat-desc">is all it takes — aortic diameter in millimetres</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num">6<span>s</span></div>
-    <div class="stat-desc">to screen one scan — without touching the radiologist's workflow</div>
+    <div class="stat-num">0.97<span>+</span></div>
+    <div class="stat-desc">Dice score for aorta segmentation, proven out-of-the-box</div>
   </div>
 </div>
 
-<!-- IMPACT -->
-<section id="impact">
+<!-- PROBLEM -->
+<section id="problem">
   <div class="section-tag">The problem</div>
-  <h2>A silent epidemic hiding in plain sight</h2>
-  <p class="section-intro">Fatty liver disease is the fastest-growing cause of liver transplantation worldwide. The evidence sits inside scans that are already being taken — it's just not being read.</p>
+  <h2>A lethal finding hiding in scans already taken</h2>
+  <p class="section-intro">Aortic aneurysms kill because they go undetected. Not because the evidence isn't there — it is, in the millions of routine abdominal CTs performed every year.</p>
 
-  <div class="impact-grid">
-    <div class="impact-cell">
-      <div class="impact-icon">🔬</div>
-      <h3>A direct physical measurement</h3>
-      <p>As fat accumulates in the liver, CT attenuation drops in a near-linear, predictable way. Marrowen reads this signal directly — no learned proxy, no guesswork.</p>
+  <div class="problem-split">
+    <div class="prob-cell">
+      <div class="prob-icon">🫀</div>
+      <h3>Silent until it's catastrophic</h3>
+      <p>An abdominal aortic aneurysm causes no pain, no symptoms, and no warning signs. The first indication is often rupture — by which point 80% of patients do not survive to reach the operating table.</p>
     </div>
-    <div class="impact-cell">
-      <div class="impact-icon">📋</div>
-      <h3>Opportunistic, not additional</h3>
-      <p>Every routine non-contrast abdominal CT that passes through the liver contains enough data to grade steatosis. Marrowen works on scans that were already ordered for something else entirely.</p>
+    <div class="prob-cell">
+      <div class="prob-icon">🔍</div>
+      <h3>Already visible, never measured</h3>
+      <p>Studies show that patients who later die from rupture had the aorta clearly visible in scans taken years earlier — for kidney stones, cancer follow-ups, abdominal pain. The scan was there. The measurement was not.</p>
     </div>
-    <div class="impact-cell">
-      <div class="impact-icon">⏱</div>
-      <h3>Early enough to reverse</h3>
-      <p>Steatosis caught early responds well to lifestyle intervention and emerging pharmacotherapy. Finding it before it becomes fibrosis or cirrhosis is the entire point.</p>
+    <div class="prob-cell">
+      <div class="prob-icon">📏</div>
+      <h3>The diagnosis is just a measurement</h3>
+      <p>Unlike most diseases, AAA doesn't require a learned model or a complex classifier. The aortic diameter in millimetres — compared against a threshold — is the diagnosis. It is pure geometry.</p>
     </div>
-    <div class="impact-cell">
-      <div class="impact-icon">🔒</div>
-      <h3>No additional patient burden</h3>
-      <p>No extra imaging. No biopsy. No gadolinium. No added cost to the scan already performed. Marrowen screens using what's already there.</p>
+    <div class="prob-cell">
+      <div class="prob-icon">🚫</div>
+      <h3>Existing AI tools don't cover this</h3>
+      <p>Every FDA-cleared aortic AI tool operates on dedicated contrast-enhanced aortic CTA — scans ordered because a clinician already suspects the problem. The opportunistic angle, on routine non-vascular CT, is completely unaddressed.</p>
     </div>
   </div>
 </section>
@@ -612,75 +447,75 @@
 <!-- HOW IT WORKS -->
 <section id="how" class="how-section">
   <div class="section-tag">The pipeline</div>
-  <h2>Three steps. Under ten seconds.</h2>
-  <p class="section-intro">Marrowen's design is deliberately simple — fewer moving parts means fewer failure points, and a single dominant biomarker that is a direct physical measurement means accuracy doesn't depend on a complex model.</p>
+  <h2>Segment. Measure. Flag.</h2>
+  <p class="section-intro">Marrowen's architecture is the simplest possible: no trained classifier, no probabilistic model. The biomarker is geometric and the threshold is fixed. Accuracy comes from the measurement, not the algorithm.</p>
 
   <div class="pipeline">
     <div class="pipe-step">
       <div class="pipe-num">1</div>
       <h3>Ingest &amp; Filter</h3>
-      <p>The scan is read and checked for contrast enhancement via DICOM metadata. Contrast-enhanced series are excluded automatically before any measurement is taken.</p>
-      <div class="pipe-connector"></div>
+      <p>DICOM metadata is read. Series flagged as contrast-enhanced or non-abdominal are excluded. The remaining scan is converted and resampled for analysis.</p>
+      <div class="pipe-dot"></div>
     </div>
     <div class="pipe-step">
       <div class="pipe-num">2</div>
-      <h3>Liver Segmentation</h3>
-      <p>The liver and spleen volumes are identified and outlined. Mean Hounsfield Unit attenuation is measured within the liver mask using the original, unmodified scan voxels.</p>
-      <div class="pipe-connector"></div>
+      <h3>Aorta Segmentation</h3>
+      <p>TotalSegmentator extracts the full aortic volume with published Dice &gt;0.97. An ellipse is fitted to each axial slice. Maximum outer-wall diameter is recorded with the vertebral level of the widest point.</p>
+      <div class="pipe-dot"></div>
     </div>
     <div class="pipe-step">
       <div class="pipe-num">3</div>
-      <h3>Grade &amp; Report</h3>
-      <p>A steatosis grade is assigned. The output is a one-page PDF per patient with the grade, risk score, and an explanation of which features drove the result.</p>
+      <h3>Flag &amp; Report</h3>
+      <p>Diameter is compared against clinical thresholds. A one-page PDF is generated per patient: max diameter, location, threshold comparison, and recommended action — ready to append to the existing report.</p>
     </div>
   </div>
 </section>
 
-<!-- GRADES -->
-<section class="grades-section">
+<!-- SIZE THRESHOLDS -->
+<section class="thresholds-section">
   <div class="section-tag">Output</div>
-  <h2>Four grades, one clear recommendation</h2>
-  <p class="section-intro">Each scan produces a grade, a numerical risk score, and an actionable clinical recommendation — written for the radiologist, not the algorithm.</p>
+  <h2>One measurement, one clear action</h2>
+  <p class="section-intro">Every scan produces a maximum diameter, an anatomical location, and an unambiguous clinical recommendation. No score, no probability — just the number and what it means.</p>
 
-  <table class="grades-table" aria-label="Steatosis grade reference">
+  <table class="thresh-table" aria-label="AAA size threshold reference">
     <thead>
       <tr>
-        <th>Grade</th>
-        <th>Liver HU range</th>
-        <th>L/S ratio</th>
+        <th>Finding</th>
+        <th>Max diameter</th>
+        <th>Rupture risk</th>
         <th>Recommended action</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="grade-pill grade-none">None</span></td>
-        <td>Above 60 HU</td>
-        <td>Above 1.1</td>
-        <td>Normal liver — no action required</td>
+        <td><span class="sz-pill sz-normal">Normal</span></td>
+        <td>Below 30 mm</td>
+        <td>Negligible</td>
+        <td>No action — note in report</td>
       </tr>
       <tr>
-        <td><span class="grade-pill grade-mild">Mild</span></td>
-        <td>40 – 60 HU</td>
-        <td>0.8 – 1.1</td>
-        <td>Early MASLD — lifestyle counselling indicated</td>
+        <td><span class="sz-pill sz-watch">Small AAA</span></td>
+        <td>30 – 44 mm</td>
+        <td>Low (&lt;1% / year)</td>
+        <td>Ultrasound surveillance every 2–3 years</td>
       </tr>
       <tr>
-        <td><span class="grade-pill grade-mod">Moderate</span></td>
-        <td>30 – 39 HU</td>
-        <td>Below 0.8</td>
-        <td>Significant steatosis — hepatology referral recommended</td>
+        <td><span class="sz-pill sz-refer">Medium AAA</span></td>
+        <td>45 – 54 mm</td>
+        <td>Moderate (~1–3% / year)</td>
+        <td>Vascular surgery referral — surveillance every 6–12 months</td>
       </tr>
       <tr>
-        <td><span class="grade-pill grade-sev">Severe</span></td>
-        <td>Below 30 HU</td>
-        <td>Below 0.7</td>
-        <td>Advanced steatosis — urgent hepatology evaluation</td>
+        <td><span class="sz-pill sz-urgent">Large AAA</span></td>
+        <td>55 mm or above</td>
+        <td>High (&gt;5% / year)</td>
+        <td>Urgent vascular referral — surgical repair discussion</td>
       </tr>
     </tbody>
   </table>
 </section>
 
-<!-- LAUNCH / WAITLIST -->
+<!-- WAITLIST -->
 <section id="waitlist" class="launch-section">
   <div class="launch-date">Targeting launch &mdash; Early November 2026</div>
   <h2>Get involved early</h2>
@@ -712,22 +547,17 @@
 </footer>
 
 <script>
-  // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     });
   });
 
-  // One-time fade-in on hero load
-  document.querySelector('.hero').style.opacity = '0';
-  document.querySelector('.hero').style.transform = 'translateY(12px)';
+  const hero = document.querySelector('.hero');
+  hero.style.opacity = '0';
+  hero.style.transform = 'translateY(12px)';
   window.addEventListener('load', () => {
-    const hero = document.querySelector('.hero');
     hero.style.transition = 'opacity 0.9s ease, transform 0.9s ease';
     hero.style.opacity = '1';
     hero.style.transform = 'translateY(0)';
